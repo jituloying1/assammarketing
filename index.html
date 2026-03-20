@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fruit Sound Learning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f0f8ff;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.fruit {
+  margin: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fruit img {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px gray;
+}
+
+.fruit:hover {
+  transform: scale(1.1);
+}
+
+.name {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🍎 Click the Fruit to Hear its Name</h1>
+
+<div class="container">
+
+  <div class="fruit" onclick="playSound('apple')">
+    <img src="https://i.imgur.com/1bX5QH6.png">
+    <div class="name">Apple</div>
+  </div>
+
+  <div class="fruit" onclick="playSound('banana')">
+    <img src="https://i.imgur.com/8zQZ6Qy.png">
+    <div class="name">Banana</div>
+  </div>
+
+  <div class="fruit" onclick="playSound('orange')">
+    <img src="https://i.imgur.com/W9bXh8h.png">
+    <div class="name">Orange</div>
+  </div>
+
+  <div class="fruit" onclick="playSound('mango')">
+    <img src="https://i.imgur.com/VgX8z3R.png">
+    <div class="name">Mango</div>
+  </div>
+
+  <div class="fruit" onclick="playSound('grapes')">
+    <img src="https://i.imgur.com/Qz1qX0K.png">
+    <div class="name">Grapes</div>
+  </div>
+
+</div>
+
+<script>
+function playSound(fruitName) {
+  let msg = new SpeechSynthesisUtterance(fruitName);
+  msg.rate = 0.9;   // speed
+  msg.pitch = 1;    // tone
+  window.speechSynthesis.speak(msg);
+}
+</script>
+
+</body>
+</html>
